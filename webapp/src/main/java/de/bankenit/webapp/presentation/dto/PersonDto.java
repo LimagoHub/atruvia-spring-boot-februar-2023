@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @XmlRootElement
-public class PersonDto {
+public class PersonDto { // Technisches Objekt
 
     @NotNull
     private UUID id;

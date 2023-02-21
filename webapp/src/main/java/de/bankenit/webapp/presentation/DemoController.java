@@ -9,7 +9,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.annotation.SessionScope;
 
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/demo") // Virtueller Ordner
 public class DemoController {
 
 

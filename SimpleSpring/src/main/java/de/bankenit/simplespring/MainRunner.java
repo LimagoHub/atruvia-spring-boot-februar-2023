@@ -15,7 +15,7 @@ public class MainRunner implements CommandLineRunner {
 
 
     private final Demo demo;
-    //@Value("${MainRunner.message}")
+    @Value("${MainRunner.message}")
     private String message="MyMessage";
 
     public MainRunner(final Demo demo) {

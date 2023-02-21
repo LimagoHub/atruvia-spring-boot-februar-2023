@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -23,14 +24,14 @@ import java.util.stream.Collectors;
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleGenericException(Exception ex, WebRequest request) {
+	public ResponseEntity<Object> handleGenericException(Exception ex, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("message", ex.getMessage());
 		body.put("type", ex.getClass().getSimpleName());
         body.put("xyz", "abc");
         // Loggen
-        return ResponseEntity.badRequest().body(body);
+        return ResponseEntity.internalServerError().body(body);
     }
 	
 //	@ExceptionHandler(PersonenServiceException.class)
