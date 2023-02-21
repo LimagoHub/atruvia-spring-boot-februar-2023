@@ -14,7 +14,7 @@ import java.util.UUID;
 @Builder
 public class Person {
 
-    private UUID id;
+    private String id;
 
     private String vorname;
 

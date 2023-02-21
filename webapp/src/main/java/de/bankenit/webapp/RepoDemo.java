@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import java.util.UUID;
 
-@Component
+//@Component
 @AllArgsConstructor
 @Transactional
 public class RepoDemo {
@@ -21,10 +21,12 @@ public class RepoDemo {
     @PostConstruct
     public void foo() {
 
-        Iterable<PersonEntity> personen = repo.findByVorname("John");
+//        Iterable<PersonEntity> personen = repo.findByVorname("John");
+//
+//        personen.forEach(System.out::println);
 
-        personen.forEach(System.out::println);
+        repo.save(PersonEntity.builder().id(UUID.randomUUID().toString()).vorname("John").nachname("Doe").build());
 
-
+        System.out.println(repo.findById("88d6ded0-92ed-40f1-a341-b98a85c0212b").get());
     }
 }

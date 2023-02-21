@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-public interface PersonenRepository extends CrudRepository<PersonEntity, UUID> {
+public interface PersonenRepository extends CrudRepository<PersonEntity, String> {
     Iterable<PersonEntity> findByVorname(String vorname);
 
     @Query("select p from PersonEntity p where p.vorname like :vorname")

@@ -19,7 +19,9 @@ import java.util.UUID;
 public class PersonDto { // Technisches Objekt
 
     @NotNull
-    private UUID id;
+    @Size(min=36, max=36)
+    @NotNull
+    private String id;
     @NotNull
     @Size(min=2, max=30)
     private String vorname;

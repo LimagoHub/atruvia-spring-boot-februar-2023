@@ -1,6 +1,7 @@
 package de.bankenit.webapp.presentation.errorhandling;
 
 
+import de.bankenit.webapp.service.PersonenServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,15 +35,15 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity.internalServerError().body(body);
     }
 	
-//	@ExceptionHandler(PersonenServiceException.class)
-//	public ResponseEntity<Object> handlePersonenServiceException(PersonenServiceException ex, WebRequest request) {
-//        Map<String, Object> body = new LinkedHashMap<>();
-//        body.put("timestamp", LocalDateTime.now());
-//        body.put("message", ex.getMessage());
-//        body.put("xyz", "abc");
-//        log.error("Upps", ex);// Wichtig
-//        return ResponseEntity.badRequest().body(body);
-//    }
+	@ExceptionHandler(PersonenServiceException.class)
+	public ResponseEntity<Object> handlePersonenServiceException(PersonenServiceException ex, WebRequest request) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", ex.getMessage());
+        body.put("xyz", "abc");
+        log.error("Upps", ex);// Wichtig
+        return ResponseEntity.badRequest().body(body);
+    }
 
 	 @Override
 	 protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {

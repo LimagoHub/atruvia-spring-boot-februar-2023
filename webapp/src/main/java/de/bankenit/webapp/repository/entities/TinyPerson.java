@@ -8,15 +8,15 @@ import java.util.UUID;
 
 public final class TinyPerson {
 
-    private final UUID id;
+    private final String id;
     private final String nachname;
 
-    public TinyPerson(UUID id, String nachname) {
+    public TinyPerson(String id, String nachname) {
         this.id = id;
         this.nachname = nachname;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 

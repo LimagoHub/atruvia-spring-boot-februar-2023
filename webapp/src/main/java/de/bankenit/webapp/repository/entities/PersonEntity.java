@@ -23,7 +23,8 @@ import java.util.UUID;
 public class PersonEntity {
 
     @Id
-    private UUID id;
+    @Column(length = 36, nullable = false)
+    private String id;
 
     @Column(length = 30, nullable = false)
     private String vorname;
