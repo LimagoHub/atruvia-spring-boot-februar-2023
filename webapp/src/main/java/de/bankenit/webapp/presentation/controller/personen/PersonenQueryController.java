@@ -1,4 +1,4 @@
-package de.bankenit.webapp.presentation;
+package de.bankenit.webapp.presentation.controller.personen;
 
 import de.bankenit.webapp.presentation.dto.PersonDto;
 import de.bankenit.webapp.presentation.mapper.PersonDtoMapper;

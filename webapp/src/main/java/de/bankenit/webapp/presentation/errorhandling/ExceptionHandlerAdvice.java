@@ -42,7 +42,10 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         body.put("message", ex.getMessage());
         body.put("xyz", "abc");
         log.error("Upps", ex);// Wichtig
-        return ResponseEntity.badRequest().body(body);
+		if(ex.getMessage().equals("Antipath"))
+        	return ResponseEntity.badRequest().body(body);
+		else
+			return ResponseEntity.internalServerError().body(body);
     }
 
 	 @Override
@@ -57,7 +60,7 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 	        List<String> errors = ex.getBindingResult()
 	                .getFieldErrors()
 	                .stream()
-	                .map(x -> x.getDefaultMessage())
+	                .map(x -> x.getField() + ":" +x.getDefaultMessage())
 	                .collect(Collectors.toList());
 
 	        body.put("errors", errors);

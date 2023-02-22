@@ -6,21 +6,24 @@ import de.bankenit.webapp.service.PersonenServiceException;
 import de.bankenit.webapp.service.mapper.PersonMapper;
 import de.bankenit.webapp.service.model.Person;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
 @AllArgsConstructor
 @Transactional(rollbackFor = PersonenServiceException.class, propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class PersonenServiceImpl implements PersonenService {
 
     private final PersonenRepository repo;
     private final PersonMapper mapper;
+
+    private final List<String> antipathen;
+
+
 
     @Override
     public boolean speichern(Person person) throws PersonenServiceException {
@@ -34,7 +37,7 @@ public class PersonenServiceImpl implements PersonenService {
             if(person.getNachname() == null || person.getNachname().length() < 2)
                 throw new PersonenServiceException("Nachname zu kurz");
 
-            if("Attila".equals(person.getVorname()))
+            if(antipathen.contains(person.getVorname()))
                 throw new PersonenServiceException("Antipath");
 
             boolean result = repo.existsById(person.getId()) ;

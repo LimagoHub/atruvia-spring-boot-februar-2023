@@ -1,4 +1,4 @@
-package de.bankenit.webapp.presentation;
+package de.bankenit.webapp.presentation.controller;
 
 
 import org.springframework.http.MediaType;
