@@ -46,7 +46,7 @@ public class PersonenQueryController {
     @ApiResponse(responseCode = "400", description = "Bad Request" )
     @ApiResponse(responseCode = "500", description = "Interner Serverfehler")
     @GetMapping(path = "",produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Iterable<PersonDto>> findeAlle(
+    public ResponseEntity<Iterable<PersonDto>> findAllPersons(
             @RequestParam(required = false, defaultValue = "") String vorname,
             @RequestParam(required = false, defaultValue = "") String nachname ) throws PersonenServiceException{
         return ResponseEntity.ok(mapper.convert(service.findeAlle()));

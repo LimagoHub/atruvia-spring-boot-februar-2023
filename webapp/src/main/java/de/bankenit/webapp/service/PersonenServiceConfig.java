@@ -28,10 +28,10 @@ public class PersonenServiceConfig {
         return List.of("Banana","Apple","Cherry","Raspberry");
     }
 
-    @Bean()
-    @Scope("singleton")
-    @Lazy
-    public PersonenService createPersonenService(PersonenRepository repo, PersonMapper mapper, @Qualifier("antipathen") List<String> antipathen) {
-        return new PersonenServiceImpl(repo, mapper,antipathen);
-    }
+//    @Bean()
+//    @Scope("singleton")
+//    @Lazy
+//    public PersonenService createPersonenService(PersonenRepository repo, PersonMapper mapper, @Qualifier("antipathen") List<String> antipathen) {
+//        return new PersonenServiceImpl(repo, mapper,antipathen);
+//    }
 }

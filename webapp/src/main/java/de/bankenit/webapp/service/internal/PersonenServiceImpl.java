@@ -6,6 +6,7 @@ import de.bankenit.webapp.service.PersonenServiceException;
 import de.bankenit.webapp.service.mapper.PersonMapper;
 import de.bankenit.webapp.service.model.Person;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+
+@Service
 @AllArgsConstructor
 @Transactional(rollbackFor = PersonenServiceException.class, propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class PersonenServiceImpl implements PersonenService {

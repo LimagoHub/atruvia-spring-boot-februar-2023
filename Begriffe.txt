@@ -32,3 +32,15 @@ Konflikte aufloesen
 	
 @ConfigurationProperties(prefix = "mail")
 @PropertySource(value= "classpath:mail.yml",  factory = YamlPropertySourceFactory.class)
+
+
+Nützliche Links
+https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/aop.html
+https://start.spring.io/
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+https://restfulapi.net/resource-naming/
+https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design
+
+
+
+
