@@ -70,6 +70,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Manuell -->
         <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
         <dependency>
             <groupId>org.springdoc</groupId>
